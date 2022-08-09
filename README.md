@@ -6,7 +6,7 @@ OHIF Office Hours Meetings
 ## Meetings Info
 You are invited to a Zoom meeting.
 
-When: Thursdays 09:00 AM Eastern Time (US and Canada)
+When: Thursdays ~~09:00 AM Eastern Time~~ 10:00 AM Eastern Time (US and Canada)
 
 Register in advance for these recurring meetings [here](https://us02web.zoom.us/meeting/register/tZYpcO6oqTIvE9IpMOEZ3XNFxSfUML9R6YHn)
 
