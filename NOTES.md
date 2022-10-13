@@ -10,3 +10,4 @@
 - [September 22 2022 meeting](notes/8-sep-22-2022.md)
 - [September 29 2022 meeting](notes/9-sep-29-2022.md)
 - [October 6 2022 meeting](notes/10-oct-6-2022.md)
+- [October 13 2022 meeting](notes/11-oct-13-2022.md)
