@@ -13,3 +13,4 @@
 - [October 13 2022 meeting](notes/11-oct-13-2022.md)
 - [October 20 2022 meeting](notes/12-oct-20-2022.md)
 - [October 27 2022 meeting](notes/13-oct-27-2022.md)
+- [November 3 2022 meeting](notes/14-nov-3-2022.md)
