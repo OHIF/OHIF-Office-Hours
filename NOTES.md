@@ -17,3 +17,4 @@
 - [November 10 2022 meeting](notes/15-nov-10-2022.md)
 - [November 17 2022 meeting](notes/16-nov-17-2022.md)
 - [November 25 2022 meeting](notes/17-nov-25-2022.md)
+- [December 1 2022 meeting](notes/18-dec-1-2022.md)
