@@ -20,3 +20,5 @@
 - [December 1 2022 meeting](notes/18-dec-1-2022.md)
 - [December 8 2022 meeting](notes/19-dec-8-2022.md)
 - [December 15 2022 meeting](notes/20-dec-15-2022.md)
+- [December 22 2022 meeting](notes/21-Dec-22-2022.md)
+- [January 5 2023 meeting](notes/22-Jan-5-2023.md)
