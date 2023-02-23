@@ -32,3 +32,5 @@
 - [January 26](notes/2023-01-26.md)
 - [February 2](notes/2023-02-02.md)
 - [February 9](notes/2023-02-09.md)
+- [February 16](notes/2023-02-16.md)
+- [February 23](notes/2023-02-23.md)
