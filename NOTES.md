@@ -39,3 +39,6 @@
 - [March 16](notes/2023-03-16.md)
 - [March 23](notes/2023-03-23.md)
 - [March 30](notes/2023-03-30.md)
+- [April 6](notes/2023-04-06.md)
+- [April 13](notes/2023-04-13.md)
+- [April 20](notes/2023-04-20.md)
