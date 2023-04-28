@@ -42,3 +42,4 @@
 - [April 6](notes/2023-04-06.md)
 - [April 13](notes/2023-04-13.md)
 - [April 20](notes/2023-04-20.md)
+- [April 27](notes/2023-04-27.md)
