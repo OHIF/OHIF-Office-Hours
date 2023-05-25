@@ -45,3 +45,5 @@
 - [April 27](notes/2023-04-27.md)
 - [May 4](notes/2023-05-04.md)
 - [May 11](notes/2023-05-11.md)
+- [May 18](notes/2023-05-18.md)
+- [May 25](notes/2023-05-25.md)
