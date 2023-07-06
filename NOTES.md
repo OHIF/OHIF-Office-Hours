@@ -51,3 +51,5 @@
 - [June 8](notes/2023-06-08.md)
 - [June 15](notes/2023-06-15.md)
 - [June 22](notes/2023-06-22.md)
+- [June 29](notes/2023-06-29.md)
+- [July 6](notes/2023-07-06.md)
