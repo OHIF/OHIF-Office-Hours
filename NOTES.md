@@ -55,3 +55,4 @@
 - [July 6](notes/2023-07-06.md)
 - [July 13](notes/2023-07-13.md)
 - [July 20](notes/2023-07-20.md)
+- [July 27](notes/2023-07-27.md)
