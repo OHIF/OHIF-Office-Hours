@@ -62,3 +62,4 @@
 - [August 24](notes/2023-08-24.md)
 - [August 31](notes/2023-08-31.md)
 - [September 7](notes/2023-09-07.md)
+- [September 14](notes/2023-09-14.md)
