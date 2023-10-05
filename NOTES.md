@@ -65,3 +65,4 @@
 - [September 14](notes/2023-09-14.md)
 - [September 21](notes/2023-09-21.md)
 - [September 28](notes/2023-09-28.md)
+- [October 5](notes/2023-10-05.md)
