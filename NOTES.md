@@ -70,3 +70,4 @@
 - [October 19](notes/2023-10-19.md)
 - [October 26](notes/2023-10-26.md)
 - [November 2](notes/2023-11-02.md)
+- [November 9](notes/2023-11-09.md)
