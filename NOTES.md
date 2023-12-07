@@ -74,3 +74,4 @@
 - [November 16](notes/2023-11-16.md)
 - [November 23](notes/2023-11-23.md)
 - [November 30](notes/2023-11-30.md)
+- [December 7](notes/2023-12-07.md)
