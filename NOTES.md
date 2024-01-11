@@ -77,3 +77,7 @@
 - [December 7](notes/2023-12-07.md)
 - [December 14](notes/2023-12-14.md)
 - [December 21](notes/2023-12-21.md)
+
+## 2024
+
+- [January 11](notes/2024-01-11.md)
