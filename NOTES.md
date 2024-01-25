@@ -82,3 +82,4 @@
 
 - [January 11](notes/2024-01-11.md)
 - [January 18](notes/2024-01-18.md)
+- [January 25](notes/2024-01-25.md)
