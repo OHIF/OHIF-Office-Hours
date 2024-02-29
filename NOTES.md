@@ -87,3 +87,4 @@
 - [February 8](notes/2024-02-08.md)
 - [February 15](notes/2024-02-15.md)
 - [February 22](notes/2024-02-22.md)
+- [February 29](notes/2024-02-29.md)
