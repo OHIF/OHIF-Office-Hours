@@ -94,3 +94,4 @@
 - [March 28](notes/2024-03-28.md)
 - [April 4](notes/2024-04-04.md)
 - [April 11](notes/2024-04-11.md)
+- [April 18](notes/2024-04-18.md)
