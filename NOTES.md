@@ -95,3 +95,4 @@
 - [April 4](notes/2024-04-04.md)
 - [April 11](notes/2024-04-11.md)
 - [April 18](notes/2024-04-18.md)
+- [April 25](notes/2024-04-25.md)
