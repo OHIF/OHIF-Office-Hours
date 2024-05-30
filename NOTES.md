@@ -100,3 +100,4 @@
 - [May 9](notes/2024-05-09.md)
 - [May 16](notes/2024-05-16.md)
 - [May 23](notes/2024-05-23.md)
+- [May 30](notes/2024-05-30.md)
