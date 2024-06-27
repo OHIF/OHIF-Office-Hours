@@ -104,3 +104,4 @@
 - [June 6](notes/2024-06-06.md)
 - [June 13](notes/2024-06-13.md)
 - [June 20](notes/2024-06-20.md)
+- [June 27](notes/2024-06-27.md)
