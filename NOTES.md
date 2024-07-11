@@ -105,3 +105,5 @@
 - [June 13](notes/2024-06-13.md)
 - [June 20](notes/2024-06-20.md)
 - [June 27](notes/2024-06-27.md)
+- [July 4](notes/2024-07-04.md)
+- [July 11](notes/2024-07-11.md)
