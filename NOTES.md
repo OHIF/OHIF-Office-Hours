@@ -111,3 +111,4 @@
 - [August 1](notes/2024-08-01.md)
 - [August 8](notes/2024-08-08.md)
 - [August 15](notes/2024-08-15.md)
+- [August 22](notes/2024-08-22.md)
