@@ -116,3 +116,4 @@
 - [September 5](notes/2024-09-05.md)
 - [September 12](notes/2024-09-12.md)
 - [September 19](notes/2024-09-19.md)
+- [October 3](notes/2024-10-03.md)
