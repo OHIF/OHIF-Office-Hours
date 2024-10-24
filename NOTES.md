@@ -119,3 +119,4 @@
 - [October 3](notes/2024-10-03.md)
 - [October 10](notes/2024-10-10.md)
 - [October 17](notes/2024-10-17.md)
+- [October 24](notes/2024-10-24.md)
