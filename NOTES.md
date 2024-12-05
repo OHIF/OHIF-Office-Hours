@@ -124,3 +124,4 @@
 - [November 7](notes/2024-11-07.md)
 - [November 14](notes/2024-11-14.md)
 - [November 21](notes/2024-11-21.md)
+- [December 5](notes/2024-12-05.md)
