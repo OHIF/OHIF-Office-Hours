@@ -1,5 +1,9 @@
 # Meeting Notes
 
+Total number of questions answered: 396
+Total number of attendees: 905
+
+
 ## 2022
 
 - [August 4](notes/2022-08-04.md)
@@ -126,3 +130,4 @@
 - [November 21](notes/2024-11-21.md)
 - [December 5](notes/2024-12-05.md)
 - [December 12](notes/2024-12-12.md)
+- [December 19](notes/2024-12-19.md)
