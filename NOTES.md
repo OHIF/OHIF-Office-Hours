@@ -1,7 +1,5 @@
 # Meeting Notes
 
-Total number of questions answered: 396
-Total number of attendees: 905
 
 
 ## 2022
@@ -131,3 +129,16 @@ Total number of attendees: 905
 - [December 5](notes/2024-12-05.md)
 - [December 12](notes/2024-12-12.md)
 - [December 19](notes/2024-12-19.md)
+
+
+
+Total number of questions answered: 396
+Total number of attendees: 905
+
+
+## 2025
+
+Attendees: 17
+Questions: 8
+
+- [January 9](notes/2025-01-09.md)
