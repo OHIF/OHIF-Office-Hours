@@ -138,7 +138,9 @@ Total number of attendees: 905
 
 ## 2025
 
-Attendees: 17
-Questions: 8
+So far:
+- Attendees: 35
+- Questions: 20
 
 - [January 9](notes/2025-01-09.md)
+- [January 16](notes/2025-01-16.md)
