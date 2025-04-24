@@ -140,7 +140,7 @@ Total number of attendees: 905
 
 So far:
 
-Attendees: 235 - Questions: 224 (updated April 10th)
+Attendees: 252 - Questions: 234 (updated April 24)
 
 - [January 9](notes/2025-01-09.md)
 - [January 16](notes/2025-01-16.md)
@@ -156,3 +156,5 @@ Attendees: 235 - Questions: 224 (updated April 10th)
 - [March 27](notes/2025-03-27.md)
 - [April 3](notes/2025-04-03.md)
 - [April 10](notes/2025-04-10.md)
+- [April 17](notes/2025-04-17.md)
+- [April 24](notes/2025-04-24.md)
