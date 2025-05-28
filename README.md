@@ -6,9 +6,9 @@ OHIF Office Hours Meetings
 ## Meetings Info
 You are invited to a Zoom meeting.
 
-When: Thursdays 10:00 AM Eastern Time (US and Canada)
+When: Tuesdays 11:00 AM Eastern Time (US and Canada)
 
-Register in advance for these recurring meetings [here](https://us02web.zoom.us/meeting/register/tZMldOuuqj0jGty2AOGnhQc8hMjABEUL_JL4)
+Register in advance for these recurring meetings [here](https://partners.zoom.us/meeting/register/y0Tw1QQeTyqqX82gaX8jJg)
 
 
 After registering, you will receive a confirmation email containing information about joining the meeting.
@@ -23,7 +23,7 @@ Q: What type of people typically attend?
 A: Software developers, scientists and radiologists
 
 Q: Can I share my screen to show a bug?
-A: Ofcourse
+A: Of course!
 
 Q: What are common topics of discussion?
 A: Answering questions about OHIF, Cornerstone and affiliated libraries. If we have time, discuss pull requests and bug reports
