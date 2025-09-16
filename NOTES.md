@@ -166,4 +166,5 @@ Attendees: 350 - Questions: 325 (updated September 2)
 - [August 5](notes/2025-08-05.md)
 - [August 19](notes/2025-08-19.md)
 - [September 2](notes/2025-09-02.md)
+- [September 16](notes/2025-09-16.md)
 
