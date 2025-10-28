@@ -1,7 +1,5 @@
 # Meeting Notes
 
-
-
 ## 2022
 
 - [August 4](notes/2022-08-04.md)
@@ -130,11 +128,8 @@
 - [December 12](notes/2024-12-12.md)
 - [December 19](notes/2024-12-19.md)
 
-
-
 Total number of questions answered: 396
 Total number of attendees: 905
-
 
 ## 2025
 
@@ -169,4 +164,4 @@ Attendees: 371 - Questions: 333 (updated October 14)
 - [September 16](notes/2025-09-16.md)
 - [September 30](notes/2025-09-30.md)
 - [October 14](notes/2025-10-14.md)
-
+- [October 28](notes/2025-10-28.md)
