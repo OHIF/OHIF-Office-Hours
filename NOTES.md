@@ -135,7 +135,7 @@ Total number of attendees: 905
 
 So far:
 
-Attendees: 371 - Questions: 333 (updated October 14)
+Attendees: 388 - Questions: 337 (updated November 25)
 
 - [January 9](notes/2025-01-09.md)
 - [January 16](notes/2025-01-16.md)
