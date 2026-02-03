@@ -1,0 +1,52 @@
+## Questions and Summarized Answers
+
+🧩 **We have PR awaiting
+2 PR that should easy to merge :
+[https://github.com/cornerstonejs/cornerstone3D/pull/2532](https://github.com/cornerstonejs/cornerstone3D/pull/2532)
+[https://github.com/cornerstonejs/cornerstone3D/pull/2564](https://github.com/cornerstonejs/cornerstone3D/pull/2564)
+
+1 PR which break test (but shouldn’t…)
+[https://github.com/cornerstonejs/cornerstone3D/pull/2560](https://github.com/cornerstonejs/cornerstone3D/pull/2560)
+
+The last one is approved but was just to reproduce a bug (however maybe fixed meanwhile ?)
+[https://github.com/cornerstonejs/cornerstone3D/pull/2566](https://github.com/cornerstonejs/cornerstone3D/pull/2566)
+See if this PR addresses this [https://github.com/cornerstonejs/cornerstone3D/pull/2568](https://github.com/cornerstonejs/cornerstone3D/pull/2568)**
+
+* **PRs ready to merge**
+
+  * PRs **#2532** and **#2564** are straightforward and low risk
+* **PR breaking tests**
+
+  * PR **#2560** currently breaks tests but is not expected to
+  * Needs investigation to determine whether test expectations are outdated or a regression exists
+* **Bug reproduction PR**
+
+  * PR **#2566** was approved only to reproduce a bug
+  * PR **#2568** should be reviewed to confirm whether it resolves the issue
+* **Recommended next steps**
+
+  * Merge #2532 and #2564
+  * Investigate test failures in #2560
+  * Verify whether #2568 supersedes #2566
+
+---
+
+🧩 **We are having some segmentation loading issues (specifically having to do with memory) – which requires throttling the segmentation viewer. Have you encountered this before?
+
+Also: does Amazon Healthimaging work out of the box with OHIF? It looks like we are running into segmentation load problems directly from AHI.**
+
+* **Segmentation memory issues**
+
+  * High memory usage can occur when loading large or multiple segmentations
+  * Throttling segmentation loading is a known mitigation strategy
+* **Amazon Health Imaging (AHI) compatibility**
+
+  * AHI does **not** work out of the box with OHIF for segmentation loading
+  * OHIF expects **raw, uncompressed DICOM** for segmentations
+  * AHI serves **compressed formats**, causing segmentation loading to stall or fail silently
+* **Key technical limitation**
+
+  * Current OHIF segmentation loaders assume full uncompressed DICOM retrieval
+* **Reference viewer**
+
+  * [https://viewer-dev.ohif.org/viewer?StudyInstanceUIDs=1.3.12.2.1107.5.2.32.35162.30000015050317233592200000046](https://viewer-dev.ohif.org/viewer?StudyInstanceUIDs=1.3.12.2.1107.5.2.32.35162.30000015050317233592200000046)
