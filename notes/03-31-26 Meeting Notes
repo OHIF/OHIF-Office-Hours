@@ -1,0 +1,42 @@
+## Questions and Summarized Answers
+
+🧩 **Having some issues building with node 24 dependencies**
+
+* **Issue with Node 24 compatibility**
+
+  * Build failures observed when using Node.js v24 with OHIF / Cornerstone dependencies
+  * Likely due to:
+
+    * Dependency incompatibilities
+    * Tooling not yet updated for Node 24
+* **Recommended action**
+
+  * Create an issue in the Cornerstone repository
+  * Include:
+
+    * Full list of errors / failures
+    * Node version
+    * Steps to reproduce
+  * This will allow maintainers to triage and determine compatibility gaps
+
+---
+
+🧩 **What is preferred build method for OHIF?**
+
+* **Current standard**
+
+  * OHIF primarily uses **Yarn 1 (classic)** for builds and dependency management
+* **Alternative approaches**
+
+  * Other package managers and build strategies have been explored
+  * No clearly superior alternative has been identified yet
+* **Recommendation**
+
+  * Continue using Yarn 1 for stability and compatibility with the current ecosystem
+
+---
+
+## One-line Question Summaries
+
+* 🧩 Node 24 build issues and how to report and troubleshoot dependency incompatibilities
+* 🧩 Preferred build tooling for OHIF and why Yarn 1 remains the standard
