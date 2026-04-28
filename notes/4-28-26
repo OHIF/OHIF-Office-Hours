@@ -1,0 +1,93 @@
+## Questions and Summarized Answers
+
+🧩 **I’m looking to implement progressive loading in Azure HDS. Has anyone done this before or can share guidance on the best approach?**
+
+* **Progressive loading goal**
+
+  * Deliver faster initial image display over constrained networks by loading data incrementally
+
+* **General approach in OHIF / DICOMweb context**
+
+  * Use **progressive transfer syntaxes** (e.g., HTJ2K) where available
+  * Prioritize **first-view images** (visible viewport) before background prefetch
+  * Implement **range requests / frame-level retrieval** when supported
+
+* **Azure Health Data Services (HDS) considerations**
+
+  * Validate support for:
+
+    * **Partial content (HTTP Range requests)**
+    * **Multipart responses** for frames
+    * **Transfer syntax negotiation** (e.g., HTJ2K)
+  * Ensure the server can return data in a way compatible with OHIF’s loaders
+
+* **Client-side strategies**
+
+  * Enable **progressive decoding** (HTJ2K) to refine image quality over time
+  * Use **request prioritization**:
+
+    * Visible viewport → interaction → prefetch → thumbnails
+  * Limit concurrency to avoid saturating slow networks
+
+* **Segmentation considerations**
+
+  * Progressive loading for segmentations is limited compared to images
+  * Prefer:
+
+    * Smaller SEG objects
+    * Label maps when possible
+    * Deferred loading of segmentations until needed
+
+* **Recommended next steps**
+
+  * Prototype with a known progressive-capable dataset (HTJ2K)
+  * Validate HDS response behavior (range, multipart)
+  * Tune concurrency and prioritization for slow network conditions
+
+---
+
+🧩 **Provide a high level summary of OHIF**
+
+* **What OHIF is**
+
+  * An open-source, web-based medical imaging platform for viewing and interacting with DICOM data in the browser
+
+* **Core capabilities**
+
+  * Multi-modality support (CT, MR, PET, SPECT, etc.)
+  * 2D/3D visualization (including MIP and volume rendering)
+  * Annotation and measurement tools
+  * Segmentation support (DICOM SEG, label maps, surfaces)
+
+* **Architecture**
+
+  * Built with **React + TypeScript**
+  * Uses **Cornerstone3D** for rendering and image handling
+  * Extensible via a **plugin/extension system** (modes, panels, services)
+
+* **Data access**
+
+  * Integrates with **DICOMweb** servers (WADO-RS, QIDO-RS, STOW-RS)
+  * Supports cloud backends and custom data sources via adapters
+
+* **Customization & extensibility**
+
+  * Extensions allow adding:
+
+    * Custom tools
+    * Workflows (modes)
+    * UI components and panels
+  * Configurable hanging protocols and viewport layouts
+
+* **Typical use cases**
+
+  * Clinical viewers
+  * Research visualization tools
+  * AI/ML workflow integration (inference + visualization)
+
+---
+
+## One-line Question Summaries
+
+* 🧩 Best practices for implementing progressive loading with Azure Health Data Services in OHIF
+* 🧩 High-level overview of OHIF architecture, capabilities, and extensibility
