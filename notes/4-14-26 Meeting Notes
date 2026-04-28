@@ -1,0 +1,84 @@
+## Questions and Summarized Answers
+
+🧩 **I have a c++ algorithm for image analysis, is it efficient to use assembly to integrate into OHIF or we need to program with java**
+
+* **Recommended integration approach**
+
+  * Do **not** use assembly directly for browser integration
+  * Do **not** rewrite in Java for OHIF compatibility
+* **Best practice: WebAssembly (WASM)**
+
+  * Compile C++ algorithms to **WASM**
+  * Enables:
+
+    * Near-native performance in the browser
+    * Reuse of existing C++ codebases
+    * Seamless integration with JavaScript/TypeScript
+* **Integration into OHIF**
+
+  * Use OHIF’s extension system to hook in custom processing logic
+  * Reference:
+
+    * [https://docs.ohif.org/platform/extensions/](https://docs.ohif.org/platform/extensions/)
+* **Summary**
+
+  * C++ → WASM is the preferred and most efficient path for browser-based image analysis in OHIF
+
+---
+
+🧩 **For some CT images, there’s always a warning that ends up showing, the image may not be full reconstructed and a yellow triangle shows up. I have partly figured out why that issue occurs, but is there a way to forcefully not generate that div where the warning triangle is loaded.**
+
+* **Cause of warning**
+
+  * Triggered when OHIF detects potential issues with:
+
+    * Image reconstruction completeness
+    * Metadata inconsistencies
+* **Customization approach**
+
+  * The warning UI (yellow triangle + message) can be controlled via configuration
+* **Recommended solution**
+
+  * Add a **toggle mechanism** to:
+
+    * Enable/disable specific warnings
+    * Customize which warnings are displayed
+* **Important consideration**
+
+  * Disabling warnings may hide legitimate data quality issues
+  * Should be done carefully depending on clinical or production requirements
+
+---
+
+🧩 **yarn build OHIF has a Webpack Ternserplugin call. On a machine with limited memory sometimes it sends a SIGKILL with the final error: not enough memory. Are there any minimum memory requirements for an application that runs OHIF that a server should have maybe to minimize any ram swaps and just have a clean build.**
+
+* **Root cause**
+
+  * Webpack’s **TerserPlugin (minification step)** is memory intensive
+  * On low-memory machines:
+
+    * Process can be killed (SIGKILL)
+    * Typically occurs near the end of the build
+* **Build-time vs runtime**
+
+  * This is primarily a **build-time issue**, not runtime viewer performance
+* **Mitigation strategies**
+
+  * Increase available system memory (RAM)
+  * Adjust Node.js memory limits (e.g., `--max-old-space-size`)
+  * Reduce build parallelism if applicable
+  * Run builds on machines with more resources (CI/CD or cloud)
+* **General guidance**
+
+  * No strict minimum defined, but:
+
+    * Low-memory environments are prone to failure during minification
+    * Stable builds typically require sufficient headroom to avoid swapping
+
+---
+
+## One-line Question Summaries
+
+* 🧩 How to integrate C++ image analysis algorithms into OHIF efficiently (WASM vs other approaches)
+* 🧩 How to disable or customize CT reconstruction warning indicators in the viewer
+* 🧩 Memory requirements and mitigation strategies for OHIF builds failing during Webpack/Terser minification
