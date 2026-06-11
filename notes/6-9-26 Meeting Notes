@@ -1,0 +1,56 @@
+## Questions and Summarized Answers
+
+🧩 **I've created an issue on GitHub for OHIF Viewer regarding a dedicated ECG mode in the viewer, and I have a prototype started. Could the team review it and indicate whether ECG mode is on the roadmap?** ([OHIF/Viewers#6068](https://github.com/OHIF/Viewers/issues/6068))
+
+* **Team position on ECG mode**
+
+  * A dedicated ECG mode is worth pursuing — enough domain-specific differences exist around ECGs to justify a mode
+  * Mode should support both **dedicated ECG reading** (many ECGs in sequence) and **integrated viewing** alongside other modalities (e.g., ultrasound or cardiac MR synced to a concurrent ECG)
+  * Team does not have bandwidth to lead this work directly right now, but supports community contribution
+
+* **Waveform viewport**
+
+  * Extend the **base Cornerstone viewport** for the canvas-based ECG waveform viewport rather than building a custom one
+  * The **waveform subclass handler** is being updated in the Cornerstone release going out the same day — build on that foundation
+
+* **Measurements panel**
+
+  * Reuse the **existing measurements panel** rather than introducing an ECG-specific one
+  * Reuse enables **integrated measurements**:
+
+    * ECG millivolt values alongside temporal measurements from concurrent imaging
+    * Distance measurements in MR shown alongside ECG values at the same time point
+  * A custom panel would lose this integration
+
+* **Tool state, event bus, and services**
+
+  * Use the **existing tool state** — do not introduce new patterns for ECG-only
+  * For state management and events, use the **existing Zustand stores** and **existing services/events**
+  * The broader event-bus question is a separate discussion; reuse current mechanisms for now
+
+* **Alternative path (if needed)**
+
+  * If the interaction pattern genuinely needs to diverge from OHIF conventions, an ECG viewer can be implemented as a **separate package deployed alongside OHIF**, taking over the screen area via an iframe
+  * Reasonable fallback only if a true mode integration won't fit the use case
+
+* **Suggested starting point**
+
+  * Work on the **Cornerstone side first**:
+
+    * Update how the viewport renders ECG waveforms
+    * Add controls for toggling individual traces on/off
+    * Address other ECG-specific viewport behaviors
+  * Once viewport behavior is solid, layer the ECG mode on top
+
+* **Contribution path**
+
+  * Contribution would land in the **open mode showcase**, publicly available in OHIF
+  * Team will provide **PR review** and lightweight guidance as work progresses
+  * For deeper collaboration (design specs, implementation support), reach out to James directly
+  * Open invitation to return to office hours with progress, questions, or to request review help
+
+---
+
+## One-line Question Summaries
+
+* 🧩 Guidance on contributing a dedicated ECG mode to OHIF Viewer, including viewport, measurements, state, and integration patterns
