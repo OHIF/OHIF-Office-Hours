@@ -8,7 +8,7 @@ You are invited to a Zoom meeting.
 
 When: Tuesdays 11:00 AM Eastern Time (US and Canada)
 
-Register in advance for these recurring meetings [here](https://partners.zoom.us/meeting/register/y0Tw1QQeTyqqX82gaX8jJg)
+Register in advance for these recurring meetings [here](https://mgb-org.zoom.us/meeting/register/y0Tw1QQeTyqqX82gaX8jJg)
 
 
 After registering, you will receive a confirmation email containing information about joining the meeting.
