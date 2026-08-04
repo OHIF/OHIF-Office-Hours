@@ -1,0 +1,139 @@
+## Questions and Summarized Answers
+
+🧩 **Follow-up on the dedicated ECG mode PR — how should the ECG grid layout (12×1, 3×2, etc.) be structured? Does it need a separate interface that we can extend into ECG-specific classes?** ([OHIF/Viewers#6068](https://github.com/OHIF/Viewers/issues/6068))
+
+* **Current PR status**
+
+  * PR is on the back burner due to 3.13 release cleanup; ~2 weeks before the team can dedicate review time
+  * PR is too large to review effectively — needs to be broken into smaller pieces (2–3 PRs)
+  * Before breaking it down, the architectural approach needs a more detailed discussion so the design doesn't have to change repeatedly
+
+* **The four-layer architecture the ECG mode needs to fit into**
+
+  * **Cornerstone viewport** — draws the basic data (ECG traces, grid); minimal, primitive
+  * **Cornerstone tools library** — adds a small amount of interaction on top of viewports (annotations, overlays)
+  * **OHIF tools layer** — coordinates sets of viewports and layouts without constraining to a specific setup
+  * **OHIF modes layer** — the opinionated view of how the tools should be assembled for a given workflow (this is where the ECG mode itself lives)
+  * Getting the right functionality at each layer is the tricky part, especially for a new data type that doesn't behave like imaging data
+
+* **What belongs in the ECG viewport**
+
+  * Only camera / canvas logic and the drawing of ECG traces (and possibly the grid)
+  * A simple structure specifying trace areas — e.g., "this trace goes in this region, from here to here, at this height, with this scaling"
+  * Areas should be specifiable externally, either via named presets (using percentages) or by fully defined regions
+  * These should live in the same properties surface as flip, rotate, etc. so they're consistent with existing viewport behavior
+  * May end up needing a different camera type; that's acceptable
+
+* **What belongs outside the viewport**
+
+  * QRS points, heart rate, and all ECG-specific calculations — separate calculation module, imported into the viewport
+  * Grid layout logic (12×1, 3×2, etc.) — should be an annotation tool or a layout mechanism on top of the viewport, not baked into it
+  * This mirrors how imaging viewports work: the viewport shows the data, and tools/annotations layered on top change what the user sees
+
+* **Why this matters**
+
+  * If too much ECG-specific logic ends up in the viewport itself and the design changes later, it will look drastically different in a final revision and require backwards-compatibility work
+  * A layered separation lets the external interface evolve (different layouts, different tools) without changing the base viewport
+
+* **Suggested next step**
+
+  * Before re-submitting PRs, write up the proposed approach as a design document and send to Bill, Alireza, and James
+  * The team will prioritize reviewing the document so the PR isn't blocked for long
+  * Bill's framing: going through this design step feels slower but is faster overall than re-implementing after each design correction
+
+---
+
+🧩 **What is the direction of OHIF's evolution regarding WebGL limitations for very large studies (heavy oncology / angiography series)?**
+
+* **Context from the questioner (Clément)**
+
+  * Working at TEDU Technology (France) integrating OHIF with a PACS
+  * Most studies work fine; heavy oncology series were problematic
+  * Currently using another viewer for the very heavy studies, but wanted to understand OHIF's roadmap on this
+
+* **Immediately available: CPU rendering**
+
+  * Available in OHIF 3.13 via a URL flag
+  * Still requires all frames in memory, but individual frames don't have to be contiguous — so the WebGL contiguous-texture limitation is removed
+  * Renders at full resolution; slower than GPU rendering
+  * Trade-off: correct display of large volumes at the cost of render speed
+
+* **Immediately available: lower-resolution / decimated rendering**
+
+  * For MPR, decimate the volume — e.g., render 1,000 slices instead of 4,000, or render 2,000 slices at 256×256
+  * Requires a UI warning that full-resolution data is not being displayed
+  * (CPU rendering does not need this warning since it renders full resolution)
+
+* **Coming with WebGPU (open PR in Cornerstone)**
+
+  * Multiple-texture rendering — split, e.g., 4,000 slices across 4 textures of 1,000 slices each, so no single texture exceeds memory limits
+  * Also helps segmentation, which currently needs a combined texture for the 3D case
+  * WebGL implementation of multi-texture has bugs; WebGPU is the path forward
+  * Note from Salim: WebGPU should also help with the Intel GPU compatibility problem (~18% of laptops have the problematic chip, currently requiring users to change browser settings to the ANGLE backend)
+
+* **Server-side rendering options**
+
+  * A capable server can produce MPR views directly
+  * Two paths: display the server-rendered images directly, or fetch alternative volumes computed server-side
+
+* **Alternative volumes for MPR**
+
+  * Simplest: generate two additional orthogonal volumes (sagittal, coronal) alongside the acquisition; use whichever orthogonal volume matches the desired MPR direction
+  * Doesn't handle arbitrary oblique (e.g., 45°) views
+  * For arbitrary orientations: create resampled views using an integer-indexed vector on the I, J, K planes (with GCD = 1 so no repeated skips), pick the sample coordinate system closest to the target vector, and use partial-resolution MPR
+  * If the resampled view can be constructed server-side, the transmit cost becomes reasonable for very large volumes
+
+* **DICOMweb 3D (WADO-3D)**
+
+  * The newer WADO-3D / DICOMweb 3D requests allow directly requesting these images from a compliant server
+  * Good performance is possible but requires the server to actually support it, and pre-computing renderings uses a lot of storage
+  * Also a significant bandwidth question — displaying very large data isn't purely a rendering problem
+
+* **Open decisions**
+
+  * The team is still evaluating which combination of these to standardize on
+  * 3D and MPR solutions aren't identical; whether 3D needs to be diagnostic-quality is a separate constraint
+
+---
+
+🧩 **Open Cornerstone PRs on non-orthogonal tool statistics — what problem do they solve?**
+
+* **The underlying problem**
+
+  * When a rectangle, circle, or freeform ROI is drawn on a non-orthogonal plane (image pixels at, e.g., 45° to the screen), determining which image pixels are actually inside the ROI is a hard problem
+  * An infinitely thin plane misses most pixels; a thicker slice risks duplicate counting or undercounting
+  * A brute-force scan of the full 3D volume works but is not efficient enough for large volumes
+
+* **The approach in the PRs**
+
+  * Construct integer-indexed vectors in image (I, J, K) space that step through the ROI efficiently, correcting the approximation as iteration proceeds
+  * Cheaper than exact integer approximation (which would require a lot of math) and dramatically faster than the brute-force check
+  * Works for spheres as well as planar volumes
+
+* **Relevant Cornerstone PRs**
+
+  * `#2743` — improved brush shape
+  * `#2744` — freehand ROI and volume viewport for oblique
+  * `#2717` — prevent closed freehand ROI stat mismatch between stack and volume viewport
+
+* **Effect once merged**
+
+  * Planar freeform on non-orthogonal slices will return valid statistics
+  * Rectangle and circle tools (currently buggy and extremely slow on oblique views) will also be fixed
+  * Bill's broader goal: provide enough well-specified tools that users don't need to understand the underlying math, and AI can be pointed at the specs to work with them
+
+* **On `isPreferredTargetId`**
+
+  * Separate concern — handles volume selection when two volumes share a viewport, not orientation
+  * Recent change surfaces statistics for both volumes; the preferred-target logic should be fixed soon
+
+---
+
+🧩 **Any updates on the older open PRs from the community?**
+
+* **Status (Salim's PRs and others held over from 3.13)**
+
+  * PRs that didn't make it into 3.13 are already on the 3.14 to-do list
+  * PR backlog is large and review capacity is limited (largely on Bill's shoulders), but the queue is being worked through
+  * Anything not yet on the 3.14 list will be reviewed and triaged
+
